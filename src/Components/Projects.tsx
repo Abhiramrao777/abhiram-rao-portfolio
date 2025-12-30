@@ -13,7 +13,7 @@ const projects = [
     description:
       "Personal portfolio website containing my academic details, skills and projects.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "GitHub"],
-    github: "https://github.com/yourusername/portfolio",
+    github: "https://github.com/Abhiramrao777/abhiram-rao-portfolio.git",
     screenshot: "Projects/portfolio.png",
   },
   {
