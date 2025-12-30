@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-purple-900: #4c1d95;
+  --color-purple-700: #6d28d9;
+  --color-purple-600: #9333ea;
+  --color-purple-500: #a855f7;
+  --color-gray-950: #030712;
+  --color-gray-900: #111827;
+  --color-gray-800: #1f2937;
+}
+
+@utility glow-purple {
+  box-shadow: 0 0 25px color-mix(in srgb, var(--color-purple-600) 40%, transparent);
+}
+
+@utility card {
+  background-color: rgb(17 24 39 / 0.6);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid rgb(76 29 149 / 0.3);
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    border-color: rgb(147 51 234 / 0.5);
+    box-shadow: 0 10px 25px -5px rgb(126 34 205 / 0.25);
+  }
+} 
+body {
+  background: linear-gradient(135deg, #0a0e17 0%, #1a0d2e 50%, #2d1b4e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(168,85,247,0.12) 0%, transparent 40%),
+              radial-gradient(circle at 70% 60%, rgba(147,51,234,0.1) 0%, transparent 50%);
+  animation: blob 20s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes blob {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(20%, 10%) rotate(10deg); }
+}
+html, body {
+  height: 100%;
+  overflow-y: auto;  /* allow vertical scroll */
+  scroll-behavior: smooth;  /* smooth scrolling when clicking nav links */
+}
+
+main {
+  min-height: 100vh;  /* at least one full screen height */
+}
