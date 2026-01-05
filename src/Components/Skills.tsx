@@ -24,7 +24,7 @@ const skillGroups = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 px-6 bg-linear-to-b from-gray-950 to-gray-900">
+    <section id="skills" className="py-20 px-3 bg-linear-to-b from-gray-950 to-gray-900">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl font-bold text-center mb-4 text-white">SKILLS</h2>
         <p className="text-center text-purple-500 mb-12">
@@ -60,6 +60,6 @@ export default function Skills() {
           ))}
         </div>
       </div>
-    </section>
+    </section>3
   );
 }
