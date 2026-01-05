@@ -29,7 +29,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-6 bg-linear-to-b from-gray-950 to-gray-900">
+    <section id="projects" className="py-20 px-3 bg-linear-to-b from-gray-950 to-gray-900">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl font-bold text-center mb-4 text-white">PROJECTS / INTERNSHIPS</h2>
         <p className="text-center text-purple-500 mb-12">Showcase of my work & technical projects</p>
