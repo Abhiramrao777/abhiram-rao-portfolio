@@ -1,87 +1,133 @@
-// src/components/Projects.tsx
+import { motion } from 'framer-motion';
+import { Github, FileText, ExternalLink } from 'lucide-react'; // Added icons
+
 const projects = [
   {
     title: "Greenhouse System",
-    description:
-      "Green house system which monitors soil temperature, moisture, humidity and activates a water pump and a cooling fan based on relay switching.",
-    tech: ["Python", "Raspberry Pi Pico 2W", "Thonny IDE", "GitHub"],
+    description: "Green house system which monitors soil temperature, moisture, humidity and activates a water pump and a cooling fan based on relay switching.",
+    tech: ["Python", "Raspberry Pi Pico 2W", "Thonny IDE", "Hardware"],
     github: "https://github.com/nnm23ec052-cpu/team3",
-    screenshot: "Projects/greenhouse-screenshot.png", // add real screenshot in public/projects/
+    screenshot: "Projects/greenhouse-screenshot.png",
   },
   {
     title: "Personal Portfolio Website",
-    description:
-      "Personal portfolio website containing my academic details, skills and projects.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "GitHub"],
+    description: "A highly interactive personal portfolio website containing my academic details, technical skills, and projects.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/Abhiramrao777/abhiram-rao-portfolio.git",
     screenshot: "Projects/portfolio.png",
   },
   {
-    title: "Spatiometral analysis of urban expansion using NDBI from satellite imagery",
-    description:
-      "Attended training sessions and worked on project focused on analyzing urban expansion of banglore city from 2000 to 2024 AC",
-    tech: ["QGIS Britslavia", "Google Earth Engine"],
+    title: "Spatiotemporal Analysis of Urban Expansion",
+    description: "Analyzed the urban expansion of Bangalore city from 2000 to 2024 using NDBI from satellite imagery.",
+    tech: ["QGIS", "Google Earth Engine", "Data Analysis"],
     document: "https://drive.google.com/file/d/1ZlyyxIhkM-gzEesNiKSVKXk6bs8_iJUp/view?usp=sharing",
     screenshot: "Projects/GEE.png",
   },
-  // Add more 
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 } // Slightly faster stagger
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-3 bg-linear-to-b from-gray-950 to-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-center mb-4 text-white">PROJECTS / INTERNSHIPS</h2>
-        <p className="text-center text-purple-500 mb-12">Showcase of my work & technical projects</p>
+    <section id="projects" className="py-12 px-3 bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-900 dark:to-gray-950 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white">PROJECTS / INTERNSHIPS</h2>
+          <p className="text-center text-purple-600 dark:text-purple-500 mb-12">
+            Showcase of my work & technical projects
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+        >
           {projects.map((project, i) => (
-            <div
+            <motion.div
               key={i}
-              className="card bg-gray-900/60 backdrop-blur-sm border border-purple-900/30 rounded-2xl overflow-hidden hover:border-purple-600/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-900/20"
+              variants={itemVariants}
+              // Added 'group' here for hover effects on children, and flex/flex-col to manage height
+              className="group flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1"
             >
-              {/* Screenshot / Project Image */}
-              <div className="h-48 bg-linear-to-br from-purple-900/30 to-gray-900 relative overflow-hidden">
+              {/* Image Container */}
+              <div className="h-56 relative overflow-hidden bg-gray-100 dark:bg-gray-800">
                 {project.screenshot ? (
-                  <img
-                    src={project.screenshot}
-                    alt={`${project.title} screenshot`}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  <>
+                    <img
+                      src={project.screenshot}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {/* Subtle gradient overlay to make image blend into card */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </>
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center text-purple-400 text-xl font-medium">
-                    Project {i + 1}
+                  <div className="absolute inset-0 flex items-center justify-center bg-purple-50 dark:bg-purple-900/20 text-purple-400 font-medium">
+                    Image Unavailable
                   </div>
                 )}
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">{project.description}</p>
+              {/* Content Container - flex-grow ensures this stretches to fill space */}
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                  {project.title}
+                </h3>
 
-                {/* Tech tags */}
+                <p className="text-gray-600 dark:text-gray-300 mb-6 text-sm leading-relaxed flex-grow">
+                  {project.description}
+                </p>
+
+                {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1 bg-purple-900/30 text-purple-300 text-xs rounded-full"
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 text-xs rounded-md font-medium"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                {/* Action buttons */}
-                <div className="flex flex-wrap gap-3">
+                {/* Buttons - mt-auto pushes them strictly to the bottom */}
+                <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-gray-800">
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center py-2 px-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors border border-gray-700 hover:border-purple-500"
+                      className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 rounded-lg transition-colors font-medium text-sm"
                     >
-                      GitHub
+                      <Github className="w-4 h-4" />
+                      Code
                     </a>
                   )}
 
@@ -90,18 +136,18 @@ export default function Projects() {
                       href={project.document}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center py-2 px-4 bg-purple-900/40 hover:bg-purple-800 text-purple-300 rounded-lg transition-colors border border-purple-700/50 hover:border-purple-500"
+                      className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/30 dark:hover:bg-purple-800/50 text-purple-700 dark:text-purple-300 rounded-lg transition-colors font-medium text-sm"
                     >
-                    Document PDF
+                      <FileText className="w-4 h-4" />
+                      Report
                     </a>
                   )}
-
-                  
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

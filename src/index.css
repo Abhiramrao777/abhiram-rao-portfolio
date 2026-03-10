@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-purple-900: #4c1d95;
@@ -25,36 +26,59 @@
     border-color: rgb(147 51 234 / 0.5);
     box-shadow: 0 10px 25px -5px rgb(126 34 205 / 0.25);
   }
-} 
+}
+
+/* Light mode standard background */
 body {
-  background: linear-gradient(135deg, #0a0e17 0%, #1a0d2e 50%, #2d1b4e 100%);
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #0f172a;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease;
 }
 
-body::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 30% 40%, rgba(168,85,247,0.12) 0%, transparent 40%),
-              radial-gradient(circle at 70% 60%, rgba(147,51,234,0.1) 0%, transparent 50%);
-  animation: blob 20s infinite alternate;
-  pointer-events: none;
+/* Dark mode specific background */
+.dark body {
+  background-color: #030712;
+  background-image: radial-gradient(circle at top right, rgba(76, 29, 149, 0.15), transparent),
+    radial-gradient(circle at bottom left, rgba(147, 51, 234, 0.1), transparent);
+  color: #f8fafc;
 }
 
-@keyframes blob {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(20%, 10%) rotate(10deg); }
+@utility card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    border-color: var(--color-purple-500);
+    box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.2);
+    transform: translateY(-2px);
+  }
 }
-html, body {
-  height: 100%;
-  overflow-y: auto;  /* allow vertical scroll */
-  scroll-behavior: smooth;  /* smooth scrolling when clicking nav links */
+
+.dark .card {
+  background-color: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    border-color: var(--color-purple-400);
+    box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.15);
+  }
+}
+
+
+html {
+  scroll-behavior: smooth;
 }
 
 main {
-  min-height: 100vh;  /* at least one full screen height */
+  min-height: 100vh;
 }
