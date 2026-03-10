@@ -7,6 +7,7 @@ import Contact from './Components/contact';
 import Footer from './Components/Footer';
 import { ThemeProvider } from './ThemeContext';
 import FloatingActions from './Components/FloatingActions';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Footer />
         </main>
         <FloatingActions />
+        <SpeedInsights />
       </div>
     </ThemeProvider>
   );
