@@ -46,7 +46,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="min-h-screen flex items-center pt-24 pb-16 px-6">
+    <section id="about" className="flex items-center pt-16 pb-16 px-6">
       <div className="max-w-6xl mx-auto w-full flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
         {/* Profile picture FIRST on mobile */}
         <div className="flex justify-center md:justify-end order-1 md:order-2">
@@ -65,24 +65,23 @@ export default function About() {
 
         {/* Text content */}
         <div className="text-center md:text-left space-y-6 order-2 md:order-1 z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white">
-            Hi, I am <span className="text-purple-500">{personalInfo.name}</span>
+          <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold leading-tight text-gray-900 dark:text-white">
+            Hi, I am <span className="text-purple-600 dark:text-purple-500">{personalInfo.name}</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-purple-500 font-medium">
+          <p className="text-xl md:text-2xl text-purple-600 dark:text-purple-500 font-medium">
             {personalInfo.role}
           </p>
 
           {/* Animated tagline (remove <p> below if you don't want rotation) */}
           <p
-            className={`text-lg md:text-xl text-yellow-300 max-w-xl mx-auto md:mx-0 leading-relaxed transition-opacity duration-600 ${
-              fade ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`text-lg md:text-xl text-yellow-600 dark:text-yellow-300 max-w-xl mx-auto md:mx-0 leading-relaxed transition-opacity duration-600 ${fade ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             {currentTagline}
           </p>
 
-          <p className="text-lg text-white-500 max-w-xl mx-auto md:mx-0 font font-large">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-xl mx-auto md:mx-0 font font-large">
             {personalInfo.bio}
           </p>
 
