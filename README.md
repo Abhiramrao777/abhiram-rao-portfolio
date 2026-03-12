@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Abhiram Rao - Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive, and highly interactive personal portfolio website showcasing my academic background, technical skills, projects, and contact information. Built with modern web technologies and designed for optimal user experience with full Dark/Light theme support.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive UI**: Smooth animations and transitions powered by Framer Motion.
+- **Modern Design**: Designed to be responsive with a mobile-first approach, ensuring a perfect look on all devices (Mobile, Tablet, Desktop).
+- **Dark/Light Mode**: Full theme toggle support across the entire application using native state context management.
+- **Dynamic Projects Section**: Hover effects and detailed cards for showcasing technical work, including code and document links.
+- **Timeline-based Education Section**: Visually appealing, chronological academic journey tracking.
+- **Functional Contact Form**: Direct email integration for user queries.
+- **Floating Actions**: Quick access to theme toggle and scroll-to-top functionality.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: [React 19](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/) & [FontAwesome](https://fontawesome.com/)
+- **Email Service**: [EmailJS](https://www.emailjs.com/)
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `src/Components/` - Reusable UI components including:
+  - `Navbar.tsx` & `Footer.tsx` (Navigation & Footer links)
+  - `About.tsx` (Personal Bio)
+  - `Skills.tsx` (Programming languages, tools & circuit design skills)
+  - `Projects.tsx` (Academic and personal projects showcase)
+  - `Education.tsx` (Academic timeline)
+  - `Contact.tsx` (Working contact form)
+  - `FloatingActions.tsx` (Theme & Scroll to top toggle constraints)
+- `src/data/personalData.ts` - Static data configuration managing portfolio content details.
+- `src/ThemeContext.tsx` - Global state management for Dark/Light mode toggle.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Abhiramrao777/abhiram-rao-portfolio.git
+   cd abhiram-rao-portfolio
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+   *Note: Using npm is recommended to ensure package lock compatibility.*
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+5. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## About Me
+
+**Abhiram Rao**
+*Electronics Enthusiast • Coder*
+
+I am an enthusiastic Electronics and Communication Engineering student with a passion for power systems, circuit design, embedded systems, and coding.
+
+- **GitHub**: [Abhiramrao777](https://github.com/Abhiramrao777)
+- **LinkedIn**: [Abhiram Rao](https://www.linkedin.com/in/abhiram-rao-5b227928a)
