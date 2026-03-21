@@ -16,7 +16,7 @@ const skillGroups = [
       { name: "LTSpice", icon: "https://cdn.simpleicons.org/LTSpice?viewbox=auto&size=20" },
       { name: "Keil µVision", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/arm.svg" },
       { name: "Arduino IDE", icon: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/arduino.svg" },
-      { name: "VS Code", icon: "/vscode.png" },
+      { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
       { name: "Git hub", icon: "https://cdn.simpleicons.org/github?viewbox=auto&size=20" },
     ]
   },

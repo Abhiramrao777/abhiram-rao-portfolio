@@ -3,7 +3,7 @@ import About from './Components/About';
 import Skills from './Components/Skills';
 import Projects from './Components/Projects';
 import Education from './Components/Education';
-import Contact from './Components/contact';
+import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import { ThemeProvider } from './ThemeContext';
 import FloatingActions from './Components/FloatingActions';

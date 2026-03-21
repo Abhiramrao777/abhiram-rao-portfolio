@@ -1,5 +1,6 @@
 // src/components/About.tsx
 import { useState, useEffect } from 'react';
+import VanillaTilt from 'vanilla-tilt';
 import { personalInfo } from '../data/personalData';
 
 // Rotating taglines (optional – remove if you don't want it)
@@ -32,8 +33,8 @@ export default function About() {
   // Initialize Vanilla Tilt on profile picture
   useEffect(() => {
     const tiltElement = document.querySelector('.profile-tilt') as HTMLElement | null;
-    if (tiltElement && window.VanillaTilt) {
-      window.VanillaTilt.init(tiltElement, {
+    if (tiltElement) {
+      VanillaTilt.init(tiltElement, {
         max: 21,
         speed: 400,
         glare: true,
