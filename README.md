@@ -12,7 +12,7 @@ A sleek, responsive, and highly interactive personal portfolio website showcasin
 - **Functional Contact Form**: Direct email integration for user queries.
 - **Floating Actions**: Quick access to theme toggle and scroll-to-top functionality.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend Framework**: [React 19](https://react.dev/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
